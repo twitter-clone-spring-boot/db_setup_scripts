@@ -1,0 +1,13 @@
+
+version: "3.8"
+services:
+  tweet_db:
+    build: ./
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=tweet
+    ports:
+      - "3307:3306" #Expose the 3306 port of mysql running inside container to 3307 on localhost
